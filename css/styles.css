@@ -1,0 +1,199 @@
+@import url("reset.css");
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.7;
+  font-size: 12px;
+  color: #325480;
+}
+
+.hidden {
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+main {
+  height: 760px;
+  background: url('../images/bg-forms.jpg') no-repeat center/cover;
+  position: relative;
+}
+
+.forms {
+  width: 496px;
+  height: 760px;
+  background: rgba(233, 233, 233, 0.45);
+  backdrop-filter: blur(8px);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.container {
+  max-width: 370px;
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.switch {
+  margin: 60px 0 75px;
+  display: flex;
+  border: 1px solid #325480;
+  border-radius: 30px;     
+  overflow: hidden;
+  width: 340px;              
+  height: 36px;
+}
+
+.switch button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #325480;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.switch button.active {
+  width: 168px;
+  height: 32px;
+  border-radius: 30px;
+  background: #325480;
+  margin: 1px 0 1px 1px;
+}
+
+h1 {
+  font-size: 30px;
+  color: #FFFFFF;
+  padding-bottom: 30px;
+}
+
+input {
+  width: 340px;
+  height: 44px;
+  background-color: #7C7C7C;
+  border-radius: 30px;
+  border: none;
+  padding: 15px 0 15px 20px;
+}
+
+input:focus {
+  outline: none;
+  color: #FFFFFF;
+}
+
+input[type="email"] {
+  margin-bottom: 15px;
+}
+
+input::placeholder {
+  color: #FFFFFF;
+}
+
+.password {
+  padding: 20px 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  color: #325480;
+  cursor: pointer;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #325480;
+  border-radius: 2px;
+  margin-right: 4px;
+  display: inline-block;
+  position: relative;
+}
+
+.checkbox input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid #325480;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+.btn {
+  padding: 15px 155px;
+  background-color: #325480;
+  border-radius: 30px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.register {
+  display: flex;
+  gap: 33px;
+  justify-content: center;
+  padding: 35px 0;
+  font-size: 12px;
+  color: #325480;
+}
+
+.register-text,
+.forgot {
+  text-decoration: underline;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+
+.list-icons {
+  display: flex;
+  gap: 9px;
+  padding-top: 24px;
+  justify-content: center;
+}
+
+.list-icons a {
+  color: #325480;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.list-icons a:hover {
+  color: #FFFFFF;
+  border-radius: 50%;
+  transition: all .2s linear;
+}
+
+.list-icons svg{
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
