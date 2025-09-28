@@ -24,69 +24,89 @@ body {
 }
 
 main {
-  height: 760px;
   background: url('../images/bg-forms.jpg') no-repeat center/cover;
-  position: relative;
+}
+
+form {
+  padding: 60px 0;
 }
 
 .forms {
+  display: flex;
+  flex-flow: column;
   width: 496px;
-  height: 760px;
+  height: 100vh;
+  margin-left: auto;
   background: rgba(233, 233, 233, 0.45);
   backdrop-filter: blur(8px);
-  position: absolute;
-  top: 0;
-  right: 0;
+  overflow-x: hidden;
 }
 
 .container {
-  max-width: 370px;
-  margin: 0 auto;
+  width: 370px;
+  margin: auto;
   padding: 0 15px;
   text-align: center;
 }
 
-.switch {
-  margin: 60px 0 75px;
-  display: flex;
+.switch input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.switch label {
+	display: flex;
+	width: 340px;
+	height: 36px;
+	background: transparent;
   border: 1px solid #325480;
-  border-radius: 30px;     
-  overflow: hidden;
-  width: 340px;              
-  height: 36px;
+	border-radius: 50px;
+	position: relative;
+	cursor: pointer;
 }
 
-.switch button {
-  flex: 1;
-  border: none;
-  background: transparent;
-  color: #325480;
-  cursor: pointer;
-  transition: 0.3s;
-  color: #fff;
+.switch label::before {
+	content: '';
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	width: 168px;
+	height: 32px;
+	background: #325480;
+	border-radius: 30px;
+	transition: all .3s linear;
 }
 
-.switch button.active {
-  width: 168px;
-  height: 32px;
-  border-radius: 30px;
-  background: #325480;
-  margin: 1px 0 1px 1px;
+.switch input:checked+label::before {
+	left: calc(100% - 2px);
+	transform: translateX(-100%);
 }
+
+.switch span {
+	color: #fff;
+	position: relative;
+	z-index: 1;
+	flex: 1 1 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 
 h1 {
   font-size: 30px;
   color: #FFFFFF;
-  padding-bottom: 30px;
+  padding: 75px 0 30px 0;
 }
 
 input {
-  width: 340px;
+  width: 100%;
   height: 44px;
   background-color: #7C7C7C;
   border-radius: 30px;
   border: none;
-  padding: 15px 0 15px 20px;
+  padding: 15px;
 }
 
 input:focus {
@@ -103,50 +123,55 @@ input::placeholder {
 }
 
 .password {
-  padding: 20px 0 30px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 }
 
-.checkbox {
-  display: flex;
-  align-items: center;
-  color: #325480;
-  cursor: pointer;
+.custom-check input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
 }
 
-.checkbox input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+.custom-check label {
+	cursor: pointer;
+	margin: 20px 0 30px 0;
+	display: inline-block;
+	padding: 5px 5px 5px 20px;
+	position: relative;
 }
 
-.checkmark {
-  width: 15px;
-  height: 15px;
+.custom-check label::before {
+	content: '';
+	position: absolute;
+	top: 7px;
+	left: 0;
+	width: 15px;
+	height: 15px;
   border: 1px solid #325480;
-  border-radius: 2px;
-  margin-right: 4px;
-  display: inline-block;
-  position: relative;
+	border-radius: 2px;
 }
 
-.checkbox input:checked + .checkmark::after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  top: 0px;
-  width: 5px;
-  height: 10px;
-  border: solid #325480;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+.custom-check input:checked+label::before {
+	background: #325480;
 }
 
+.custom-check input:checked+label::after {
+	content: '';
+	position: absolute;
+	top: 6px;
+	left: 5px;
+	width: 6px;
+	height: 12px;
+	border-bottom: 1px solid #fff;
+	border-right: 1px solid #fff;
+	transform: rotate(38deg);
+}
 
 .btn {
-  padding: 15px 155px;
+  padding: 15px;
+  width: 100%;
   background-color: #325480;
   border-radius: 30px;
   color: #FFFFFF;
